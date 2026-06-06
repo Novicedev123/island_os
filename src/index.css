@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap');
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+@import "leaflet.markercluster/dist/MarkerCluster.css";
+@import "leaflet.markercluster/dist/MarkerCluster.Default.css";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+  
+  --color-island-green: #064E3B; /* Deep Jungle/Forest Green */
+  --color-island-emerald: #10B981; /* High-Visibility Emerald */
+  --color-island-coral: #E11D48; /* Accent Rose */
+  --color-island-sunset: #D97706; /* Accent Amber */
+  --color-island-ocean: #059669; /* Lush Mid-Green */
+  --color-island-volcanic: #022C22; /* Deepest Forest (Green-Tinted Charcoal) */
+  --color-island-cream: #F0FDF4; /* Soft Morning Mist Green (Predominant Background) */
+  --color-island-sand: #DCFCE7; /* Pale Sage Green */
+}
+
+@layer base {
+  body {
+    @apply font-sans text-island-green bg-island-cream antialiased selection:bg-island-emerald/20 selection:text-island-emerald;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, h2, h3, h4 {
+    @apply tracking-tight font-bold text-island-volcanic;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/85 backdrop-blur-2xl border border-emerald-100 shadow-[0_8px_32px_0_rgba(6,78,59,0.05)];
+  }
+  .glass-dark {
+    @apply bg-island-volcanic/90 backdrop-blur-2xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)];
+  }
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+.emerald-gradient {
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+}
+
+.forest-gradient {
+  background: linear-gradient(135deg, #064E3B 0%, #022C22 100%);
+}
+
+.lush-gradient {
+  background: linear-gradient(135deg, #059669 0%, #064E3B 100%);
+}
+
+.btn-primary {
+  @apply emerald-gradient text-white shadow-xl shadow-island-emerald/20 hover:shadow-island-emerald/40 active:scale-95 transition-all duration-300 font-black uppercase tracking-widest text-xs flex items-center justify-center gap-2;
+}
+
+.btn-secondary {
+  @apply bg-white border-2 border-emerald-100 text-island-green hover:border-island-emerald/50 hover:bg-island-cream active:scale-95 transition-all duration-300 font-black uppercase tracking-widest text-xs flex items-center justify-center gap-2;
+}
+
+.btn-volcanic {
+  @apply forest-gradient text-white border border-white/10 shadow-xl hover:shadow-island-green/40 active:scale-95 transition-all duration-300 font-black uppercase tracking-widest text-xs flex items-center justify-center gap-2;
+}
+
+.premium-shadow {
+  box-shadow: 0 20px 50px -12px rgba(6, 78, 59, 0.1);
+}
+
+.card-hover {
+  @apply transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-[1.02] hover:-translate-y-2 hover:shadow-2xl hover:shadow-emerald-900/10;
+}
+
+/* Leaflet Popup Customization */
+.leaflet-popup-content-wrapper {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(24px) !important;
+  border: 1px solid #dcfce7 !important;
+  border-radius: 2rem !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  box-shadow: 0 25px 50px -12px rgba(6, 78, 59, 0.15) !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  width: auto !important;
+}
