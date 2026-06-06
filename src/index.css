@@ -38,27 +38,15 @@
   scrollbar-width: none;
 }
 
-@layer utilities {
-  .glass {
-    @apply bg-white/85 backdrop-blur-2xl border border-emerald-100 shadow-[0_8px_32px_0_rgba(6,78,59,0.05)];
-  }
-  .glass-dark {
-    @apply bg-island-volcanic/90 backdrop-blur-2xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)];
-  }
-  .pb-safe {
-    padding-bottom: env(safe-area-inset-bottom);
-  }
-}
-
-.emerald-gradient {
+@utility emerald-gradient {
   background: linear-gradient(135deg, #10B981 0%, #059669 100%);
 }
 
-.forest-gradient {
+@utility forest-gradient {
   background: linear-gradient(135deg, #064E3B 0%, #022C22 100%);
 }
 
-.lush-gradient {
+@utility lush-gradient {
   background: linear-gradient(135deg, #059669 0%, #064E3B 100%);
 }
 

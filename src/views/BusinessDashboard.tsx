@@ -18,6 +18,7 @@ import {
   CheckCircle2,
   Clock,
   X,
+  Building2,
   Smartphone,
   Star,
   DollarSign,
