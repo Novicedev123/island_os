@@ -41,7 +41,7 @@ import {
 import { GoogleGenAI, Type } from "@google/genai";
 import { db, handleFirestoreError, OperationType } from '../firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import { useAuth } from '../App';
+import { useAuth } from '../context/AuthContext';
 
 // Initialize Gemini
 const apiKey = import.meta.env.VITE_GEMINI_API_KEY || process.env.GEMINI_API_KEY || '';

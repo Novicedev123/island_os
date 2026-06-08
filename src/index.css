@@ -8,14 +8,14 @@
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Cormorant Garamond", serif;
   
-  --color-island-green: #064E3B; /* Deep Jungle/Forest Green */
-  --color-island-emerald: #10B981; /* High-Visibility Emerald */
-  --color-island-coral: #E11D48; /* Accent Rose */
-  --color-island-sunset: #D97706; /* Accent Amber */
-  --color-island-ocean: #059669; /* Lush Mid-Green */
-  --color-island-volcanic: #022C22; /* Deepest Forest (Green-Tinted Charcoal) */
-  --color-island-cream: #F0FDF4; /* Soft Morning Mist Green (Predominant Background) */
-  --color-island-sand: #DCFCE7; /* Pale Sage Green */
+  --color-island-green: #2563eb; /* Vibrant Tourist Blue */
+  --color-island-emerald: #10b981; /* Fresh Emerald */
+  --color-island-coral: #f472b6; /* Hot Pink/Coral */
+  --color-island-sunset: #f59e0b; /* Sunny Yellow */
+  --color-island-ocean: #06b6d4; /* Turquoise */
+  --color-island-volcanic: #1e293b; /* Dark Navy Text */
+  --color-island-cream: #fefce8; /* Soft Warm Sand */
+  --color-island-sand: #fef3c7; /* Pale Sunny Sand */
 }
 
 @layer base {
@@ -39,15 +39,15 @@
 }
 
 @utility emerald-gradient {
-  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #10b981 100%);
 }
 
 @utility forest-gradient {
-  background: linear-gradient(135deg, #064E3B 0%, #022C22 100%);
+  background: linear-gradient(135deg, #f59e0b 0%, #f472b6 100%);
 }
 
 @utility lush-gradient {
-  background: linear-gradient(135deg, #059669 0%, #064E3B 100%);
+  background: linear-gradient(135deg, #10b981 0%, #2563eb 100%);
 }
 
 .btn-primary {
