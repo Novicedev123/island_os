@@ -43,11 +43,15 @@ export default function App() {
             setLoading(false);
           } else {
             // Create profile if it doesn't exist
+            const isStaff = firebaseUser.email?.toLowerCase().includes('admin') || 
+                            firebaseUser.email?.toLowerCase().includes('lgu') ||
+                            firebaseUser.email?.toLowerCase().includes('government');
+            
             const newProfile: UserProfile = {
               uid: firebaseUser.uid,
               name: firebaseUser.displayName || 'Anonymous',
               email: firebaseUser.email || '',
-              role: 'TOURIST',
+              role: isStaff ? 'LGU' : 'TOURIST',
             };
             try {
               await setDoc(userRef, newProfile);
@@ -76,11 +80,15 @@ export default function App() {
 
   const login = async () => {
     try {
-      await import('firebase/auth').then(async ({ signInWithPopup }) => {
-        await signInWithPopup(auth, googleProvider);
-      });
+      const { signInWithPopup } = await import('firebase/auth');
+      const result = await signInWithPopup(auth, googleProvider);
+      
+      // If it's a first time user, we can optionally check their email here
+      // but the onSnapshot in useEffect will handle the profile creation/update
+      console.log('Login successful:', result.user.email);
     } catch (error) {
       console.error('Login failed:', error);
+      alert('Login failed. Please check your internet connection or try again.');
     }
   };
 
